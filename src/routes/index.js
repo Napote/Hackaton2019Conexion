@@ -1,28 +1,29 @@
 const { Router } = require("express");
 const router = Router();
-const admin = require("firebase-admin");
 
-var serviceAccount = require("../../losdomoshackaton-firebase-adminsdk-vxtnr-9b6051ddc5.json");
+//Modulo para agregar paciente
+const agregarPaciente = require("./add-patient");
 
+//Conexión a firebase
+/*const admin = require("firebase-admin");
+
+var serviceAccount = require("../../proyecto-hackathon-2019-firebase-adminsdk-3hdo6-4c1b005ced.json");
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://losdomoshackaton.firebaseio.com/"
+    databaseURL: "https://proyecto-hackathon-2019.firebaseio.com/"
 });
 
-const db = admin.database
+const db = admin.database();*/
+//Fin de Conexión a firebase
+
+agregarPaciente();
 
 router.get("/", (req, res) => {
     res.render("index");
 });
 
-router.post("/new-contact", (req,res) => {
+router.post("/search-patient", (req,res) => {
     console.log(req.body);
-    const newContact = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        phone: req.body.phone
-    }
     res.redirect("/");
 });
 
