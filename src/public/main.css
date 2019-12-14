@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Karla|Proza+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Karla';
+    color: #666;
+    background: #f2f2f2;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+h1 {
+    font-size: 2.3em;
+    line-height: 1.3em;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: 300;
+}
+
+p {
+    margin: 0 0 1.5em 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#main-header {
+    background: #B6D9D5;
+    color: white;
+    height: 80px;
+    margin-bottom: 2cm;
+}
+
+#main-header a {
+    color: white;
+}
+
+
+/*
+ * Logo
+ */
+
+#logo-header {
+    float: left;
+    padding: 15px 0 0 20px;
+    text-decoration: none;
+}
+
+#logo-header .site-name {
+    display: block;
+    font-weight: 700;
+    font-size: 1.2em;
+    font-family: 'Rubik';
+    letter-spacing: 2px;
+}
+
+#logo-header .site-desc {
+    display: block;
+    font-weight: 300;
+    font-size: 0.9em;
+    color: #4F6467;
+}
+
+
+/*
+ * Navegación
+ */
+
+nav {
+    float: right;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    padding: 0 20px;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0 15px;
+    text-decoration: none;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    transition: border-bottom-color 50ms linear 0s;
+}
+
+nav ul li a:hover,
+nav ul li a:active {
+    text-decoration: none;
+    border-bottom: 3px solid #FE615A;
+}
