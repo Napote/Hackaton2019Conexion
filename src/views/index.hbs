@@ -1,46 +1,31 @@
-<div class="col-md-6 offset-md-3">
-    <div class="card">
-        <div class="card-header">
-            <h1>Tasks</h1>
+<link rel="stylesheet" href="login.css">
+<script src="https://kit.fontawesome.com/cd669d66b8.js" crossorigin="anonymous"></script>
+ 
+
+<div class="container"> 
+         <!-- formulario de inicio de sesion -->
+         <div class="form-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-6">
+                            <form class="form-horizontal"> 
+                                <!-- <div class="heading">Login form</div> -->
+                                <div class="form-group">
+                                    <i class=""></i><input class="form-control" type="Name" placeholder="Nombre de usuario" id="userNameInput">
+                                </div>
+                                <div class="form-group">
+                                    <i class=""></i><input class="form-control" type="password" placeholder="Contrase&ntilde;a" id="userPassword">
+                                    <a href="" class="forgot-password">Tengo problemas para iniciar sesi&oacute;n</a>
+                                </div>
+                                 
+                                <button type="submit" class="btn btn-default">Iniciar sesi&Oacute;n</button>  
+                                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
         </div>
-        <div class="card-body">
-            {{#if contacts}}
-                <ul class="list-group">
-                    {{#each contacts}}
-                        <li class="list-group-item d-flex justify-content-between aling-items-center">
-                            {{firstname}}
-                            {{lastname}} /
-                            {{phone}} /
-                            {{email}}
-                            <a href="/delete-contact/{{@key}}" class="btn btn-danger">
-                                Delete
-                            </a>
-                        </li>
-                    {{/each}}
-                </ul>
-                
-            {{else}}
-            <p>No Contacts yet. :(</p>
-            {{/if}}
-        </div>
-        <div class="card-footer">
-            <form action="/new-contact" method="POST">
-                <div class="form-group">
-                    <input type="text" name="firstname" placeholder="Firstname" class="form-control" autofocus>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="lastname" placeholder="Lastname" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="email" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="phone" placeholder="Phone" class="form-control">
-                </div>
-                <button class="btn btn-primary btn-block">
-                    ADD
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
+ 
+     
+  </div>
+ 

@@ -32,7 +32,7 @@ img {
 }
 
 #main-header {
-    background: #B6D9D5;
+    background: #789F9E;
     color: white;
     height: 80px;
     margin-bottom: 2cm;
@@ -65,12 +65,12 @@ img {
     display: block;
     font-weight: 300;
     font-size: 0.9em;
-    color: #4F6467;
+    color: #B6D9D5;
 }
 
 
 /*
- * Navegación
+ * ESTILOS PARA NAV 
  */
 
 nav {
