@@ -88,7 +88,8 @@ router.post("/buscar-expediente", (req,res) => {
                 sexo: snapshot.child("sexo").val(),
                 ocupacion: snapshot.child("ocupacion").val(),
                 sangre: snapshot.child("tipoSangre").val(),
-                estadoCivil: snapshot.child("estadoCivil").val()
+                estadoCivil: snapshot.child("estadoCivil").val(),
+                consultas: snapshot.child("consultas").val()
             }
             res.render("expediente-paciente", {datos_paciente: paciente});
         }

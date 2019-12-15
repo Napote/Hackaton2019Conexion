@@ -61,21 +61,21 @@
         <table id="patient-history">
           <thead>
             <tr>
-              <th>#</th>
               <th>Fecha de consulta</th>
-              <th>Hospital/clinica</th>
-              <th>Resumen</th> 
+              <th>Centro de atencion</th>
+              <th>Examenes</th>
+              <th>Diagnostico</th> 
             </tr>
           </thead>
           <tbody>
+            {{#each datos_paciente.consultas}}
             <tr>
-              <td>1</td>
-              <td>14/12/2019</td>
-              <td>Hospital Nacional de San Vicente</td>
-              <td>Examen de cancer</td>
-              
+              <td>{{fechaConsulta}}</td>
+              <td>{{centroMedico}}</td>
+              <td>{{examenes}}</td>
+              <td>{{diagnostico}}</td>
             </tr>      
-              
+            {{/each}}
           </tbody>
         </table>
                 </div>
