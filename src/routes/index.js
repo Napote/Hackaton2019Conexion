@@ -13,7 +13,7 @@ agregarPaciente(db);
 agregarConsulta(db,"P1000002");
 
 router.get("/", (req, res) => {
-    res.render("index");
+    res.render("consulta");
 });
 
 router.post("/search-patient", (req,res) => {
