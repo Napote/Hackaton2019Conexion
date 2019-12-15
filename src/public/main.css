@@ -102,7 +102,7 @@ nav ul li a {
 nav ul li a:hover,
 nav ul li a:active {
     text-decoration: none;
-    border-bottom: 3px solid #FE615A;
+    border-bottom: 3px solid #EEF3DC;
 }
 
 
@@ -130,7 +130,7 @@ nav ul li a:active {
     letter-spacing: 2px;
     text-align: left;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #494747;
+    border-bottom: 1px solid #8A989A;
     text-transform: uppercase;
 }
 
@@ -230,3 +230,44 @@ nav ul li a:active {
 }
 
 @media only screen and (max-width:576px) {}
+
+
+/* ESTILOS DE EXPEDIENTE*/
+
+#regist-showcase {
+    margin-left: 18%;
+}
+
+ul.about {
+    list-style: none;
+    color: black;
+    padding: 0;
+}
+
+li.about-items {
+    margin: 12px;
+    font-size: 0.9rem;
+}
+
+li.about-items i {
+    color: #607d8b;
+}
+
+span.about-item-name {
+    width: 100px;
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+span.about-item-detail {
+    display: inline-flex;
+    width: calc(100% - 160px);
+}
+
+span.about-item-detail>button {
+    margin-right: 10px;
+}
+
+a.about-item-edit {
+    float: right;
+}

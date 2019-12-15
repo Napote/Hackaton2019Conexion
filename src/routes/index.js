@@ -15,26 +15,27 @@ const db = connection();
 //loggIn(db,{username: "E00001",password: "executioner"});
 
 router.get("/", (req, res) => {
-    res.render("index");
+    // res.render("index");
+    res.render("registro-paciente");
 });
 
-router.post("/loggin",(req,res)=>{
+router.post("/loggin", (req, res) => {
     var bandera = false;
     var user = {
         username: req.body.username,
         password: req.body.password
     }
-    db.ref("empleados").once("child_added", (snapshot)=>{
-        if(user.username == snapshot.key && user.password == snapshot.val().contra){
+    db.ref("empleados").once("child_added", (snapshot) => {
+        if (user.username == snapshot.key && user.password == snapshot.val().contra) {
             res.redirect("/buscar-paciente");
-        }else{
+        } else {
             bandera = true;
-            res.render("index",{autenticado: bandera});
+            res.render("index", { autenticado: bandera });
         }
     });
 });
 
-router.get("/buscar-paciente", (req,res) => {
+router.get("/buscar-paciente", (req, res) => {
     res.render("buscar-paciente");
 });
 
