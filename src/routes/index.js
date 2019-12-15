@@ -18,7 +18,8 @@ router.get("/", (req, res) => {
     res.render("index");
 });
 
-var prueba;
+var infoObtenida;
+
 
 router.post("/loggin",(req,res)=>{
     var bandera = false;
@@ -26,21 +27,22 @@ router.post("/loggin",(req,res)=>{
         username: req.body.username,
         password: req.body.password
     }
-    const empleados = db.ref().child("empleados");
-    console.log("AAAAAAAAAAAA",empleados);
-    db.ref("empleados").once("child_added", (snapshot)=>{
-        prueba = snapshot.val();
-        console.log("Adentro",prueba);
-        if(user.username == snapshot.key && user.password == snapshot.val().contra){
+    db.ref("empleados/"+user.username).once("value", (snapshot)=>{
+        if(user.password == snapshot.child("contra").val()){
             res.render("buscar-paciente");
         }else{
             bandera = true;
             res.render("index",{autenticado: bandera});
         }
+        transferirDatos(snapshot.val());
     });
-
-    console.log("Afuera",prueba);
 });
+
+function transferirDatos(datos){
+    console.log("Datos transferidos",datos);
+    infoObtenida = datos;
+    console.log("Variable afuera", infoObtenida);
+}
 
 router.post("/registrar-consulta", (req,res) => {
     var idPaciente = req.body.idPaciente;
@@ -67,12 +69,18 @@ router.post("/buscar-paciente", (req,res) => {
         nombre: req.body.nombre
     };
     console.log("datos",datos);
-    db.ref("expedientes").once("value", (snapshot)=>{
+    db.ref("expedientes/"+datos.idPaciente).once("value", (snapshot)=>{
         console.log(snapshot.key);
         if(datos.idPaciente == snapshot.key || datos.nombre == snapshot.val().nombre){
-            const paciente = snapshot.val();
-            res.render("consulta", {datos: paciente});
+            infoPaciente(snapshot.val());
+            res.render("consulta", {datos: snapshot.val(), usario: datos});
         }
+
     });
 });
+
+function infoPaciente(datos){
+    console.log("Informacion del paciente",datos);
+}
+
 module.exports = router;
