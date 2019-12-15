@@ -26,7 +26,7 @@ router.post("/loggin",(req,res)=>{
     }
     db.ref("empleados").once("child_added", (snapshot)=>{
         if(user.username == snapshot.key && user.password == snapshot.val().contra){
-            res.redirect("/regpaciente");
+            res.redirect("/buscar-paciente");
         }else{
             bandera = true;
             res.render("index",{autenticado: bandera});
@@ -34,9 +34,8 @@ router.post("/loggin",(req,res)=>{
     });
 });
 
-router.post("/search-patient", (req,res) => {
-    console.log(req.body);
-    res.redirect("/");
+router.get("/buscar-paciente", (req,res) => {
+    res.render("buscar-paciente");
 });
 
 router.get("/delete-contact/:id", (req,res) => {
