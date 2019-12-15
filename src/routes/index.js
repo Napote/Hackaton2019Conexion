@@ -5,7 +5,6 @@ const router = Router();
 //Modulo para agregar paciente
 const agregarPaciente = require("./add-patient");
 const agregarConsulta = require("./add-consulta");
-const loggIn = require("./loggin");
 
 //Conexión a firebase (Solo la puse por que sí)
 const connection = require("./firebase-connection");
@@ -20,16 +19,19 @@ router.get("/", (req, res) => {
 });
 
 router.post("/loggin",(req,res)=>{
+    var bandera = false;
     var user = {
         username: req.body.username,
         password: req.body.password
     }
-    console.log("Wohoooo funciona",user);
-    if(loggIn(db,user)){
-        res.redirect("/regpaciente");
-    }else{
-        
-    }
+    db.ref("empleados").once("child_added", (snapshot)=>{
+        if(user.username == snapshot.key && user.password == snapshot.val().contra){
+            res.redirect("/regpaciente");
+        }else{
+            bandera = true;
+            res.render("index",{autenticado: bandera});
+        }
+    });
 });
 
 router.post("/search-patient", (req,res) => {
