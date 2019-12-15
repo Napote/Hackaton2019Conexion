@@ -18,6 +18,7 @@ router.get("/", (req, res) => {
     res.render("index");
 });
 
+
 var centroMedico;
 
 router.post("/loggin",(req,res)=>{
@@ -32,7 +33,7 @@ router.post("/loggin",(req,res)=>{
             res.render("buscar-paciente");
         }else{
             bandera = true;
-            res.render("index",{autenticado: bandera});
+            res.render("index", { autenticado: bandera });
         }
         transferirDatos(snapshot.val());
     });

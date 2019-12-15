@@ -107,7 +107,7 @@ nav ul li a {
 nav ul li a:hover,
 nav ul li a:active {
     text-decoration: none;
-    border-bottom: 3px solid #FE615A;
+    border-bottom: 3px solid #EEF3DC;
 }
 
 
@@ -125,6 +125,7 @@ nav ul li a:active {
     background-color: #506568;
     overflow-x: hidden;
     padding-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #establishment {
@@ -135,7 +136,7 @@ nav ul li a:active {
     letter-spacing: 2px;
     text-align: left;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #494747;
+    border-bottom: 1px solid #8A989A;
     text-transform: uppercase;
 }
 
@@ -235,3 +236,94 @@ nav ul li a:active {
 }
 
 @media only screen and (max-width:576px) {}
+
+
+/* ESTILOS DE EXPEDIENTE*/
+
+#regist-showcase {
+    margin-left: 18%;
+}
+
+ul.about {
+    list-style: none;
+    color: black;
+    padding: 0;
+}
+
+li.about-items {
+    margin: 12px;
+    font-size: 0.9rem;
+}
+
+li.about-items i {
+    color: #607d8b;
+}
+
+span.about-item-name {
+    width: 100px;
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+span.about-item-detail {
+    display: inline-flex;
+    width: calc(100% - 160px);
+}
+
+span.about-item-detail>button {
+    margin-right: 10px;
+}
+
+a.about-item-edit {
+    float: right;
+}
+
+.add-reg-btn {
+    border: none;
+    border: none;
+    border-radius: 1rem;
+    width: 150px;
+    text-align: center;
+    display: inline-flex;
+    padding: 1% 1.5%;
+    margin-left: 20px;
+    background-color: #FE615A;
+    color: white;
+}
+
+.add-reg-btn:hover {
+    color: black;
+    background-color: #DDDDDD;
+    ;
+}
+
+
+/*ESTILO DE TABLA*/
+
+#patient-history {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+
+#patient-history td,
+#patient-history th {
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+}
+
+#patient-history tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#patient-history tr:hover {
+    background-color: #ddd;
+}
+
+#patient-history th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #FE615A;
+    color: white;
+}
