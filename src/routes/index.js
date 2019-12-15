@@ -33,12 +33,12 @@ router.post("/loggin",(req,res)=>{
     db.ref("empleados/"+user.username).once("value", (snapshot)=>{
         if(user.password == snapshot.child("contra").val()){
             transferirDatos(snapshot.val());
-            res.render("buscar-paciente");
+            res.render("buscar-paciente", {centro: centroMedico});
         }else{
             bandera = true;
             res.render("index", { autenticado: bandera });
         }
-        transferirDatos(snapshot.val());
+        //transferirDatos(snapshot.val());
     });
 });
 
@@ -89,7 +89,8 @@ router.post("/buscar-expediente", (req,res) => {
                 ocupacion: snapshot.child("ocupacion").val(),
                 tipoSangre: snapshot.child("tipoSangre").val(),
                 estadoCivil: snapshot.child("estadoCivil").val(),
-                consultas: snapshot.child("consultas").val()
+                consultas: snapshot.child("consultas").val(),
+                centro: centroMedico
             }
             res.render("expediente-paciente", {datos_paciente: paciente});
         }
@@ -139,11 +140,11 @@ router.post("/llenar-expediente", (req,res) => {
     });
 
     if(agregarExpediente(db,expediente,cantExpedientes))
-        res.render("buscar-paciente");
+        res.render("buscar-paciente", {centro: centroMedico});
 });
 
 router.get("/buscar-paciente", (req,res) => {
-    res.render("buscar-paciente");
+    res.render("buscar-paciente", {centro: centroMedico});
 });
 
 module.exports = router;
