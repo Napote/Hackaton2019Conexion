@@ -14,12 +14,14 @@ const db = connection();
 //agregarConsulta(db,"P1000002");
 //loggIn(db,{username: "E00001",password: "executioner"});
 
+var centroMedico;
+var datosPaciente;
+var f = new Date();
+var consultas = 0;
+
 router.get("/", (req, res) => {
     res.render("index");
 });
-
-
-var centroMedico;
 
 router.post("/loggin",(req,res)=>{
     var bandera = false;
@@ -44,17 +46,23 @@ function transferirDatos(datos){
 }
 
 router.post("/registrar-consulta", (req,res) => {
-    var idPaciente = req.body.idPaciente;
+    var id_Paciente = datosPaciente.idPaciente;
+    console.log(id_Paciente)
     var consulta = {
-        centroMedico: req.body.centroMedico,
+        centroMedico: centroMedico,
         diagnostico: req.body.diagnostico,
         doctor: req.body.doctor,
         examenes: req.body.examenes,
-        fechaConsulta: req.body.fechaConsulta,
+        fechaConsulta: f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear(),
         incapacidad: req.body.incapacidad,
         medicamentosSuministrados: req.body.medicamento 
     }
-    if(agregarConsulta(db,idPaciente,consulta))
+
+    db.ref("expedientes/"+id_Paciente+"/consultas").once("value", (snapshot) => {
+        consultas++;
+    });
+
+    if(agregarConsulta(db,id_Paciente,consulta,consultas))
         res.render("buscar-paciente");
 });
 
@@ -62,27 +70,33 @@ router.get("/formulario-consulta", (req,res) => {
     res.render("consulta");
 });
 
-router.post("/buscar-paciente", (req,res) => {
-    var f = new Date();
-    var datos = {
+router.post("/buscar-expediente", (req,res) => {
+    datosPaciente = {
         idPaciente: req.body.idPaciente,
         nombre: req.body.nombre
     };
-    console.log("datos",datos);
-    db.ref("expedientes/"+datos.idPaciente).once("value", (snapshot)=>{
-        console.log(snapshot.key);
-        if(datos.idPaciente == snapshot.key || datos.nombre == snapshot.val().nombre){
+    db.ref("expedientes/"+datosPaciente.idPaciente).once("value", (snapshot)=>{
+        if(datosPaciente.idPaciente == snapshot.key || datosPaciente.nombre == snapshot.val().nombre){
             var paciente = {
-                idPaciente: datos.idPaciente,
-                nombre: snapshot.val().nombre,
-                fechaConsulta: f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear(),
-                centroM: centroMedico
             }
-            console.log(paciente.centroM);
-            res.render("consulta", {datos: paciente});
+            res.render("expediente-paciente");
         }
     });
 });
 
+router.post("/llenar-consulta", (req,res) => {
+    db.ref("expedientes/"+datosPaciente.idPaciente).once("value", (snapshot)=>{
+        console.log(snapshot.key);
+        if(datosPaciente.idPaciente == snapshot.key || datosPaciente.nombre == snapshot.val().nombre){
+            var paciente = {
+                idPaciente: datosPaciente.idPaciente,
+                nombre: snapshot.val().nombre,
+                fechaConsulta: f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear(),
+                centroM: centroMedico
+            }
+            res.render("consulta", {datos: paciente});
+        }
+    });
+});
 
 module.exports = router;
