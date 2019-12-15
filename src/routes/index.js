@@ -15,12 +15,9 @@ const db = connection();
 //loggIn(db,{username: "E00001",password: "executioner"});
 
 router.get("/", (req, res) => {
-    res.render("regpaciente");
+    res.render("index");
 });
 
-<<<<<<< HEAD
-router.post("/search-patient", (req, res) => {
-=======
 router.post("/loggin",(req,res)=>{
     var bandera = false;
     var user = {
@@ -29,7 +26,7 @@ router.post("/loggin",(req,res)=>{
     }
     db.ref("empleados").once("child_added", (snapshot)=>{
         if(user.username == snapshot.key && user.password == snapshot.val().contra){
-            res.redirect("/regpaciente");
+            res.redirect("/buscar-paciente");
         }else{
             bandera = true;
             res.render("index",{autenticado: bandera});
@@ -37,10 +34,8 @@ router.post("/loggin",(req,res)=>{
     });
 });
 
-router.post("/search-patient", (req,res) => {
->>>>>>> c2b1f46aca132227eee19f63aa95dbd31466b913
-    console.log(req.body);
-    res.redirect("/");
+router.get("/buscar-paciente", (req,res) => {
+    res.render("buscar-paciente");
 });
 
 router.get("/delete-contact/:id", (req, res) => {
