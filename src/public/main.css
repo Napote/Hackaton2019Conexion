@@ -14,8 +14,9 @@ body {
     line-height: 1.5em;
 }
 
-*::placeholder{
-    color: black;
+::placeholder{
+    color: darkgrey !important;
+    opacity: 1.5 !important;
 }
 
 h1 {
