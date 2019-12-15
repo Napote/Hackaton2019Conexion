@@ -15,8 +15,7 @@ const db = connection();
 //loggIn(db,{username: "E00001",password: "executioner"});
 
 router.get("/", (req, res) => {
-    res.render("consulta");
-    res.render("regpaciente");
+    res.render("index");
 });
 
 router.post("/loggin",(req,res)=>{
