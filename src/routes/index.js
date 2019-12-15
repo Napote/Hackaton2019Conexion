@@ -19,15 +19,15 @@ const db = admin.database();*/
 agregarPaciente();
 
 router.get("/", (req, res) => {
-    res.render("index");
+    res.render("regpaciente");
 });
 
-router.post("/search-patient", (req,res) => {
+router.post("/search-patient", (req, res) => {
     console.log(req.body);
     res.redirect("/");
 });
 
-router.get("/delete-contact/:id", (req,res) => {
+router.get("/delete-contact/:id", (req, res) => {
     res.redirect("/");
 });
 
