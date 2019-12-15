@@ -3,7 +3,7 @@ const router = Router();
 
 
 //Modulo para agregar paciente
-const agregarPaciente = require("./add-patient");
+const agregarExpediente = require("./add-expediente");
 const agregarConsulta = require("./add-consulta");
 
 //Conexión a firebase (Solo la puse por que sí)
@@ -18,6 +18,7 @@ var centroMedico;
 var datosPaciente;
 var f = new Date();
 var consultas = 0;
+var cantExpedientes = 0;
 
 router.get("/", (req, res) => {
     res.render("index");
@@ -47,7 +48,6 @@ function transferirDatos(datos){
 
 router.post("/registrar-consulta", (req,res) => {
     var id_Paciente = datosPaciente.idPaciente;
-    console.log(id_Paciente)
     var consulta = {
         centroMedico: centroMedico,
         diagnostico: req.body.diagnostico,
@@ -87,7 +87,7 @@ router.post("/buscar-expediente", (req,res) => {
                 direccion: snapshot.child("direccion").val(),
                 sexo: snapshot.child("sexo").val(),
                 ocupacion: snapshot.child("ocupacion").val(),
-                sangre: snapshot.child("tipoSangre").val(),
+                tipoSangre: snapshot.child("tipoSangre").val(),
                 estadoCivil: snapshot.child("estadoCivil").val(),
                 consultas: snapshot.child("consultas").val()
             }
@@ -109,6 +109,41 @@ router.post("/llenar-consulta", (req,res) => {
             res.render("consulta", {datos: paciente});
         }
     });
+});
+
+router.get("/registrar-expediente", (req,res) => {
+    res.render("crear-expediente");
+});
+
+router.post("/llenar-expediente", (req,res) => {
+    var expediente = {
+        nombre: req.body.nombrePaciente,
+        direccion: req.body.direccion,
+        dui: req.body.dui,
+        fechaNacimiento: req.body.fechaNacimiento,
+        fechaExpediente: f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear(),
+        tipoSangre: req.body.tipoSangre,
+        estadoCivil: req.body.estadoCivil,
+        alergias: req.body.alergias,
+        emergencias: {
+            telefono: req.body.telefonoEmergencia,
+            nombre: req.body.nombreEmergencia,
+            parentesco: req.body.parentescoEmergencia
+        },
+        telefono: req.body.telefono,
+        sexo: req.body.sexo
+    }
+
+    db.ref("expedientes").once("value", (snapshot) => {
+        cantExpedientes++;
+    });
+
+    if(agregarExpediente(db,expediente,cantExpedientes))
+        res.render("buscar-paciente");
+});
+
+router.get("/buscar-paciente", (req,res) => {
+    res.render("buscar-paciente");
 });
 
 module.exports = router;
