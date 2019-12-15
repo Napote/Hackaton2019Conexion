@@ -15,11 +15,10 @@
     
     <div class="sidenav" id="sidebar">
         <a id="establishment" href="#">
-			<span id="establishment-name">Clinica Monsenor Romero</span> 
+			<span id="establishment-name">{{datos_paciente.centro}}</span> 
 		</a>
-        <a href="#">Buscar pacientes</a>
-        <a href="#">Agregar expediente</a>
-        <a href="#">Registros</a> 
+        <a href="/buscar-paciente">Buscar pacientes</a>
+        <a href="/registrar-expediente">Agregar expediente</a>
     </div>
 </div>
 
@@ -62,8 +61,8 @@
                       <li class="about-items"><i class="mdi mdi-cake icon-sm "></i><span class="about-item-name">Fecha de nacimiento:</span><span class="about-item-detail">{{datos_paciente.fechaNacimiento}}</span><a href="" class="about-item-edit">Edit</a></li>
                       <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Sexo:</span><span class="about-item-detail">{{datos_paciente.sexo}}</span> <a href="" class="about-item-edit">Edit</a></li>
                       <li class="about-items"><i class="mdi mdi-clipboard-account icon-sm "></i><span class="about-item-name">Ocupaci&oacute;n:</span><span class="about-item-detail">{{datos_paciente.ocupacion}}</span> <a href="" class="about-item-edit">Edit</a></li>
-                      <li class="about-items"><i class="mdi mdi-water icon-sm "></i><span class="about-item-name">Sangre:</span><span class="about-item-detail">{{datos_paciente.sangre}}</span> <a href="" class="about-item-edit">Edit</a></li>
-                      <li class="about-items"><i class="mdi mdi-human-male-female icon-sm "></i><span class="about-item-name">Estatus marital:</span><span class="about-item-detail">{{datos_paciente.estadoCivil}}</span> <a href="" class="about-item-edit">Edit</a></li>
+                      <li class="about-items"><i class="mdi mdi-water icon-sm "></i><span class="about-item-name">Sangre:</span><span class="about-item-detail">{{datos_paciente.tipoSangre}}</span> <a href="" class="about-item-edit">Edit</a></li>
+                      <li class="about-items"><i class="mdi mdi-human-male-female icon-sm "></i><span class="about-item-name">ALERGIAS:</span><span class="about-item-detail">{{datos_paciente.alergias}}</span> <a href="" class="about-item-edit">Edit</a></li>
                     </ul>
                                     <hr>
         <div class="row">

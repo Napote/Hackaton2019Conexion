@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.btn{
+    transition: none !important;
+}
+
 body {
     margin: 0;
     padding: 0;
