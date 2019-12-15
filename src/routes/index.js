@@ -78,8 +78,19 @@ router.post("/buscar-expediente", (req,res) => {
     db.ref("expedientes/"+datosPaciente.idPaciente).once("value", (snapshot)=>{
         if(datosPaciente.idPaciente == snapshot.key || datosPaciente.nombre == snapshot.val().nombre){
             var paciente = {
+                id: datosPaciente.idPaciente,
+                nombre: snapshot.child("nombre").val(),
+                dui: snapshot.child("dui").val(),
+                fechaCreacion: snapshot.child("fechaExpediente").val(),
+                fechaNacimiento: snapshot.child("fechaNacimiento").val(),
+                telefono: snapshot.child("telefono").val(),
+                direccion: snapshot.child("direccion").val(),
+                sexo: snapshot.child("sexo").val(),
+                ocupacion: snapshot.child("ocupacion").val(),
+                sangre: snapshot.child("tipoSangre").val(),
+                estadoCivil: snapshot.child("estadoCivil").val()
             }
-            res.render("expediente-paciente");
+            res.render("expediente-paciente", {datos_paciente: paciente});
         }
     });
 });

@@ -12,77 +12,78 @@
 </div>
 
 <div class="container">
-    
-    <div class="card" id="regist-showcase">
-    <div class="card-body">
-								<p class="card-title font-weight-bold" id= "exp-name" name="">EXPEDIENTE P00001 <span> <form action="/llenar-consulta" method="POST"><input type="submit" class="add-reg-btn" name="btnAddReg" value="Agregar consulta"/></form></span></p>
-                                
-								<hr>
-                                <div class="row">
-                                    <div class="col-sm-2"> 
-                                            <img src="..." alt="..." class="img-thumbnail">
+    {{#if datos_paciente}}
+        <div class="card" id="regist-showcase">
+        <div class="card-body">
+                    <p class="card-title font-weight-bold" id= "exp-name" name="">EXPEDIENTE {{datos_paciente.id}} <span> <form action="/llenar-consulta" method="POST"><input type="submit" class="add-reg-btn" name="btnAddReg" value="Agregar consulta"/></form></span></p>
+                                    
+                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-2"> 
+                                                <img src="..." alt="..." class="img-thumbnail">
 
-                                    </div>
-                                    <div class="col-sm-10"> 
-                                             
-								<ul class="about">
-									<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Nombre:</span><span class="about-item-detail">Ricardo Majano de Paz </span><a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">DUI:</span><span class="about-item-detail">00000000-1</span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Fecha creaci&oacute;n:</span><span class="about-item-detail">15/12/98</span> <a href="" class="about-item-edit">Edit</a></li>
-									 
-                      </span> <a href="" class="about-item-edit"> </a></li>
-                                    </div>
-                                </div>
-								
+                                        </div>
+                                        <div class="col-sm-10"> 
+                                                
+                    <ul class="about">
+                      <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Nombre:</span><span class="about-item-detail">{{datos_paciente.nombre}} </span><a href="" class="about-item-edit">Edit</a></li>
+                      <li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">DUI:</span><span class="about-item-detail">{{datos_paciente.dui}}</span> <a href="" class="about-item-edit">Edit</a></li>
+                      <li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Fecha creaci&oacute;n:</span><span class="about-item-detail">{{datos_paciente.fechaCreacion}}</span> <a href="" class="about-item-edit">Edit</a></li>
                       
-								</ul>
-                                <hr>
-								<p class="card-description">Informaci&oacute;n de contacto</p>
-								<ul class="about">
-									<li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Telefono:</span><span class="about-item-detail">+9779861106179</span><a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Direcci&oacute;n:</span><span class="about-item-detail">254 National Highway , Hisar India</span> <a href="" class="about-item-edit">Edit</a></li>
-									 
-									 
-								</ul>
-                                     <hr>
-								<p class="card-description">Datos generales</p>
-								<ul class="about">
-									<li class="about-items"><i class="mdi mdi-cake icon-sm "></i><span class="about-item-name">Fecha de nacimiento:</span><span class="about-item-detail">Aug 3 , 1998</span><a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Sexo:</span><span class="about-item-detail">Masculino</span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-clipboard-account icon-sm "></i><span class="about-item-name">Ocupaci&oacute;n:</span><span class="about-item-detail">NINI</span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-water icon-sm "></i><span class="about-item-name">Sangre:</span><span class="about-item-detail">ABC+</span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-human-male-female icon-sm "></i><span class="about-item-name">Estatus marital:</span><span class="about-item-detail">Soltero</span> <a href="" class="about-item-edit">Edit</a></li>
-								</ul>
-                                <hr>
-    <div class="row">
-        <div class="col-sm-10"> 
-            <p class="card-description">Historial</p>
-            <div class="well">
-    <table id="patient-history">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Fecha de consulta</th>
-          <th>Hospital/clinica</th>
-          <th>Resumen</th> 
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>14/12/2019</td>
-          <td>Hospital Nacional de San Vicente</td>
-          <td>Examen de cancer</td>
-          
-        </tr>      
-          
-      </tbody>
-    </table>
-            </div>
- 
-        </div> 
-    </div>
+                          </span> <a href="" class="about-item-edit"> </a></li>
+                                        </div>
+                                    </div>
+                    
+                          
+                    </ul>
+                                    <hr>
+                    <p class="card-description">Informaci&oacute;n de contacto</p>
+                    <ul class="about">
+                      <li class="about-items"><i class="mdi mdi-phone icon-sm "></i><span class="about-item-name">Telefono:</span><span class="about-item-detail">{{datos_paciente.telefono}}</span><a href="" class="about-item-edit">Edit</a></li>
+                      <li class="about-items"><i class="mdi mdi-map-marker icon-sm "></i><span class="about-item-name">Direcci&oacute;n:</span><span class="about-item-detail">{{datos_paciente.direccion}}</span> <a href="" class="about-item-edit">Edit</a></li>
+                      
+                      
+                    </ul>
+                                        <hr>
+                    <p class="card-description">Datos generales</p>
+                    <ul class="about">
+                      <li class="about-items"><i class="mdi mdi-cake icon-sm "></i><span class="about-item-name">Fecha de nacimiento:</span><span class="about-item-detail">{{datos_paciente.fechaNacimiento}}</span><a href="" class="about-item-edit">Edit</a></li>
+                      <li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Sexo:</span><span class="about-item-detail">{{datos_paciente.sexo}}</span> <a href="" class="about-item-edit">Edit</a></li>
+                      <li class="about-items"><i class="mdi mdi-clipboard-account icon-sm "></i><span class="about-item-name">Ocupaci&oacute;n:</span><span class="about-item-detail">{{datos_paciente.ocupacion}}</span> <a href="" class="about-item-edit">Edit</a></li>
+                      <li class="about-items"><i class="mdi mdi-water icon-sm "></i><span class="about-item-name">Sangre:</span><span class="about-item-detail">{{datos_paciente.sangre}}</span> <a href="" class="about-item-edit">Edit</a></li>
+                      <li class="about-items"><i class="mdi mdi-human-male-female icon-sm "></i><span class="about-item-name">Estatus marital:</span><span class="about-item-detail">{{datos_paciente.estadoCivil}}</span> <a href="" class="about-item-edit">Edit</a></li>
+                    </ul>
+                                    <hr>
+        <div class="row">
+            <div class="col-sm-10"> 
+                <p class="card-description">Historial</p>
+                <div class="well">
+        <table id="patient-history">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Fecha de consulta</th>
+              <th>Hospital/clinica</th>
+              <th>Resumen</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>14/12/2019</td>
+              <td>Hospital Nacional de San Vicente</td>
+              <td>Examen de cancer</td>
+              
+            </tr>      
+              
+          </tbody>
+        </table>
+                </div>
+    
+            </div> 
+        </div>
 
-		</div>
-    </div>
+        </div>
+        </div>
+    {{/if}}
 </div>
