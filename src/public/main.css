@@ -113,7 +113,7 @@ nav ul li a:active {
 .sidenav {
     top: 80px;
     height: 100%;
-    width: 160px;
+    width: 20%;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -123,19 +123,21 @@ nav ul li a:active {
 }
 
 #establishment {
-    margin: 1rem 0;
+    margin: 2rem auto;
     display: block;
-    font-size: 1.1em;
-    font-family: 'Rubik';
+    font-size: 16px;
+    font-family: 'Karla';
     letter-spacing: 2px;
     text-align: left;
     padding-bottom: 2rem;
     border-bottom: 1px solid #494747;
+    text-transform: uppercase;
 }
 
 #establishment:hover {
     cursor: text;
     background-color: #506568;
+    color: white;
 }
 
 .sidenav a {
@@ -147,7 +149,7 @@ nav ul li a:active {
 }
 
 .sidenav a:hover {
-    background-color: #FE615A;
+    background-color: #8A989A;
 }
 
 .main {
