@@ -3,20 +3,14 @@ const router = Router();
 
 //Modulo para agregar paciente
 const agregarPaciente = require("./add-patient");
+const agregarConsulta = require("./add-consulta");
 
-//Conexión a firebase
-/*const admin = require("firebase-admin");
+//Conexión a firebase (Solo la puse por que sí)
+const connection = require("./firebase-connection");
+const db = connection();
 
-var serviceAccount = require("../../proyecto-hackathon-2019-firebase-adminsdk-3hdo6-4c1b005ced.json");
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://proyecto-hackathon-2019.firebaseio.com/"
-});
-
-const db = admin.database();*/
-//Fin de Conexión a firebase
-
-agregarPaciente();
+agregarPaciente(db);
+agregarConsulta(db,"P1000002");
 
 router.get("/", (req, res) => {
     res.render("index");
