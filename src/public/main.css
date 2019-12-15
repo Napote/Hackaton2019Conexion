@@ -120,6 +120,7 @@ nav ul li a:active {
     background-color: #506568;
     overflow-x: hidden;
     padding-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #establishment {
@@ -270,4 +271,54 @@ span.about-item-detail>button {
 
 a.about-item-edit {
     float: right;
+}
+
+.add-reg-btn {
+    border: none;
+    border: none;
+    border-radius: 1rem;
+    width: 150px;
+    text-align: center;
+    display: inline-flex;
+    padding: 1% 1.5%;
+    margin-left: 20px;
+    background-color: #FE615A;
+    color: white;
+}
+
+.add-reg-btn:hover {
+    color: black;
+    background-color: #DDDDDD;
+    ;
+}
+
+
+/*ESTILO DE TABLA*/
+
+#patient-history {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+}
+
+#patient-history td,
+#patient-history th {
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+}
+
+#patient-history tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#patient-history tr:hover {
+    background-color: #ddd;
+}
+
+#patient-history th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #FE615A;
+    color: white;
 }
