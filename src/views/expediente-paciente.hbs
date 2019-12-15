@@ -1,7 +1,19 @@
+
+<script>
+      
+       window.onscroll = function() {resizeSideNav()};
+       function resizeSideNav() {
+  if (document.body.scrollBottom > 80 || document.documentElement.scrollTop > 80) {
+     document.getElementById("sidebar").style.top = "-30px";
+  }  else {
+    document.getElementById("sidebar").style.top = "80px";
+  }
+}
+   </script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.4.95/css/materialdesignicons.css">
 <div class="container">
     
-    <div class="sidenav">
+    <div class="sidenav" id="sidebar">
         <a id="establishment" href="#">
 			<span id="establishment-name">Clinica Monsenor Romero</span> 
 		</a>
@@ -15,7 +27,7 @@
     {{#if datos_paciente}}
         <div class="card" id="regist-showcase">
         <div class="card-body">
-                    <p class="card-title font-weight-bold" id= "exp-name" name="">EXPEDIENTE {{datos_paciente.id}} <span> <form action="/llenar-consulta" method="POST"><input type="submit" class="add-reg-btn" name="btnAddReg" value="Agregar consulta"/></form></span></p>
+                    <p class="card-title font-weight-bold" id= "exp-name" name="">EXPEDIENTE {{datos_paciente.id}} <span> </span></p><form action="/llenar-consulta" method="POST"><input type="submit" class="add-reg-btn" name="btnAddReg" value="Agregar consulta"/></form>
                                     
                     <hr>
                                     <div class="row">
